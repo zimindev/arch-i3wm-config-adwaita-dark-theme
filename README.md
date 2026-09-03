@@ -171,6 +171,12 @@ You can test manually:
 ```bash
 picom --config ~/.config/picom/picom.conf
 ```
+---
 
+## 🔄 Install Pakage 
+```bash
+yay -S google-chrome
+yay -S visual-studio-code-bin
+```
 
 
