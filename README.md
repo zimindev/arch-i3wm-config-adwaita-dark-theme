@@ -8,7 +8,7 @@
   <img src="screenshots/ksnip_20260903-100933.png" width="49%">
 </div>
 
-# 🔄 Firs step: update & upgrade
+## 🔄 Firs step: update & upgrade
 
 ```bash
 sudo pacman -S update
@@ -20,6 +20,8 @@ sudo pacman -S update
 sudo pacman -S upgrade
 reboot
 ```
+## 🔄 Install AUR
+
 
 ## 🧩 Picom Setup Guide for Arch + i3wm
 
