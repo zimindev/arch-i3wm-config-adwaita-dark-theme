@@ -7,3 +7,18 @@
   <img src="screenshots/ksnip_20260903-100853.png" width="49%">
   <img src="screenshots/ksnip_20260903-100933.png" width="49%">
 </div>
+
+# Firs step: update & upgrade
+
+```bash
+sudo pacman -S update
+sudo pacman -S upgrade
+reboot
+```
+```bash
+sudo pacman -S update
+sudo pacman -S upgrade
+reboot
+```
+
+
