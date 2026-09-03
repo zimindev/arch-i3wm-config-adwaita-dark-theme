@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Figma
+Comment=Figma Web App
+Exec=google-chrome-stable --app=https://www.figma.com/ --window-size=1024,768
+Terminal=false
+Type=Application
+Icon=/home/domino/.icons/App/figma.svg
+Categories=Graphics;Design;
+StartupNotify=true

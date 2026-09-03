@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Behance
+Comment=Behance Web App
+Exec=google-chrome-stable --app=https://www.behance.net/best-webmaster/ --window-size=1024,768
+Terminal=false
+Type=Application
+Icon=/home/domino/.icons/App/behance.svg
+Categories=Graphics;WebDesign;
+StartupNotify=true

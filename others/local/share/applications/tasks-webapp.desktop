@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Tasks
+Comment=Google Tasks Web App
+Exec=google-chrome-stable --app=https://tasks.google.com/tasks/ --window-size=1024,768
+Terminal=false
+Type=Application
+Icon=/home/domino/.icons/App/task.png
+Categories=Office;Productivity;
+StartupNotify=true

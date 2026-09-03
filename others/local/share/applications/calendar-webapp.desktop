@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Calendar
+Comment=Google Calendar Web App
+Exec=google-chrome-stable --app=https://calendar.google.com/calendar/u/0/r --window-size=1024,768
+Terminal=false
+Type=Application
+Icon=/home/domino/.icons/App/calendar.svg
+Categories=Office;Calendar;
+StartupNotify=true

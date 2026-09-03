@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Bootstrap Studio
+Exec=/home/domino/.local/share/bootstrap-studio/Bootstrap-Studio.AppImage
+Icon=/home/domino/.icons/App/bootstrap-studio.png
+Type=Application
+Categories=Development;Graphics;
+Comment=Design and prototype websites visually

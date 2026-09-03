@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Dribbble
+Comment=Dribbble Web App
+Exec=google-chrome-stable --app=https://dribbble.com/best-webmaster --window-size=1024,768
+Terminal=false
+Type=Application
+Icon=/home/domino/.icons/App/dribbble.svg
+Categories=Graphics;WebDesign;
+StartupNotify=true

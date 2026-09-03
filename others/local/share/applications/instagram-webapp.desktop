@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Instagram
+Comment=Instagram Web App
+Exec=google-chrome-stable --app=https://www.instagram.com/zimindev/ --window-size=1024,768
+Terminal=false
+Type=Application
+Icon=/home/domino/.icons/App/instagram.svg
+Categories=Network;SocialNetworking;
+StartupNotify=true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Email
+Comment=Gmail W-eb App
+Exec=google-chrome-stable --app=https://mail.google.com/mail/u/0/#inbox --window-size=1024,768
+Terminal=false
+Type=Application
+Icon=/home/domino/.icons/App/gmail.svg
+Categories=Network;WebBrowser;
+StartupNotify=true

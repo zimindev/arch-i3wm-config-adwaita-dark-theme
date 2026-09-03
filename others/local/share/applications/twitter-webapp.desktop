@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Twitter (X)
+Comment=Twitter (X) Web App
+Exec=google-chrome-stable --app=https://x.com/zimin_dev --window-size=1024,768
+Terminal=false
+Type=Application
+Icon=/home/domino/.icons/App/twitter.svg
+Categories=Network;SocialNetworking;
+StartupNotify=true

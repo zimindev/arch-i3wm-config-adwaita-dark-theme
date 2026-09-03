@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Bootstrap Server
+Comment=Open Localhost Web App (127.0.0.1:8000)
+Exec=google-chrome-stable --app=http://127.0.0.1:8000/ --window-size=1024,768
+Terminal=false
+Type=Application
+Icon=/home/domino/.icons/App/bootstrap-server.svg
+Categories=Development;WebBrowser;
+StartupNotify=true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=LinkedIn
+Comment=LinkedIn Web App
+Exec=google-chrome-stable --app=https://www.linkedin.com/in/zimin-dev/ --window-size=1024,768
+Terminal=false
+Type=Application
+Icon=/home/domino/.icons/App/linkedin.svg
+Categories=Network;SocialNetworking;
+StartupNotify=true

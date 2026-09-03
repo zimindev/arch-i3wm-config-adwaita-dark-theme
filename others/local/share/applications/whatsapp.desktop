@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=WhatsApp
+Comment=Open Google in a web app window
+Exec=google-chrome-stable --app=https://web.whatsapp.com/ --window-size=1024,768
+Terminal=false
+Type=Application
+Icon=/home/domino/.icons/App/whatsapp.png
+Categories=Network;WebBrowser;
+StartupNotify=true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=VSCode Server
+Comment=Open Localhost (127.0.0.1:5500) in app mode
+Exec=google-chrome-stable --app=http://127.0.0.1:5500/ --window-size=1024,768
+Terminal=false
+Type=Application
+Icon=/home/domino/.icons/App/vscode-server.png
+Categories=Development;WebBrowser;
+StartupNotify=true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Telegram
+Comment=Open Google in a web app window
+Exec=google-chrome-stable --app=https://web.telegram.org/a/ --window-size=1024,768
+Terminal=false
+Type=Application
+Icon=/home/domino/.icons/App/telegram.png
+Categories=Network;WebBrowser;
+StartupNotify=true
