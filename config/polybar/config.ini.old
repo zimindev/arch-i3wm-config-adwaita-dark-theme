@@ -1,0 +1,235 @@
+[colors]
+
+background = #dd242424
+background-alt = #303030
+
+foreground = #eeeeec
+foreground-alt = #9a9996
+
+primary = #3584e4
+
+success = #57e389
+warning = #f6d32d
+alert = #ed333b
+
+
+
+########################
+# BAR
+########################
+
+[bar/main]
+
+width = 100%
+height = 26
+
+radius = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+border-size = 0
+
+line-size = 2
+line-color = ${colors.primary}
+
+padding-left = 2
+padding-right = 2
+
+module-margin = 2
+
+
+font-0 = JetBrainsMono Nerd Font:size=9;3
+font-1 = Symbols Nerd Font:size=9;3
+
+
+modules-left = i3
+modules-center = date
+modules-right = temperature cpu memory wlan pulseaudio battery tray
+
+
+tray-position = right
+tray-padding = 3
+tray-spacing = 5
+
+
+enable-ipc = true
+
+
+
+########################
+# WORKSPACES
+########################
+
+[module/i3]
+
+type = internal/i3
+
+pin-workspaces = true
+index-sort = true
+
+
+label-focused = ● %name%
+label-focused-background = ${colors.primary}
+label-focused-foreground = #ffffff
+label-focused-padding = 2
+
+
+label-unfocused = ○ %name%
+label-unfocused-foreground = ${colors.foreground-alt}
+label-unfocused-padding = 2
+
+
+label-visible = ◉ %name%
+label-visible-padding = 2
+
+
+label-urgent =  %name%
+label-urgent-background = ${colors.alert}
+label-urgent-foreground = #ffffff
+
+
+
+########################
+# DATE / TIME
+########################
+
+[module/date]
+
+type = internal/date
+
+interval = 1
+
+date = %d.%m
+time = %H:%M
+
+
+label =  %date%   %time%
+
+
+
+########################
+# CPU
+########################
+
+[module/cpu]
+
+type = internal/cpu
+
+interval = 2
+
+
+label =  %percentage%%
+
+
+
+########################
+# MEMORY
+########################
+
+[module/memory]
+
+type = internal/memory
+
+interval = 2
+
+
+label =   %percentage_used%%
+
+
+
+########################
+# TEMPERATURE
+########################
+
+[module/temperature]
+
+type = internal/temperature
+
+thermal-zone = 0
+
+warn-temperature = 80
+
+
+label =  %temperature-c%
+
+
+
+########################
+# WIFI
+########################
+
+[module/wlan]
+
+type = internal/network
+
+interface-type = wireless
+
+interval = 3
+
+
+label-connected =   %essid%
+
+
+label-disconnected = 󰖪  Offline
+
+label-disconnected-foreground = ${colors.foreground-alt}
+
+
+
+########################
+# AUDIO
+########################
+
+[module/pulseaudio]
+
+type = internal/pulseaudio
+
+
+use-ui-max = true
+
+
+label-volume =   %percentage%%
+
+
+label-muted =   mute
+
+label-muted-foreground = ${colors.foreground-alt}
+
+
+
+########################
+# BATTERY
+########################
+
+[module/battery]
+
+type = internal/battery
+
+
+battery = BAT0
+adapter = AC
+
+
+full-at = 98
+
+
+label-charging =  %percentage%%
+
+label-discharging =  %percentage%%
+
+label-full =  100%
+
+
+
+########################
+# TRAY
+########################
+
+[module/tray]
+
+type = internal/tray
+
+tray-size = 70%
+
+format-margin = 2

@@ -1,0 +1,156 @@
+[colors]
+background = #242424
+background-alt = #303030
+foreground = #ffffff
+primary = #3584e4
+secondary = #555555
+alert = #e01b24
+disabled = #777777
+
+cyan = #62a0ea
+green = #57e389
+orange = #ff7800
+pink = #f66151
+yellow = #f8e45c
+
+[bar/main]
+width = 100%
+height = 18pt
+radius = 0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2pt
+line-color = ${colors.primary}
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = JetBrainsMono Nerd Font:style=Regular:size=8
+font-1 = Font Awesome 6 Free:style=Solid:size=8
+font-2 = Font Awesome 6 Brands:style=Regular:size=8
+
+modules-left = xworkspaces xwindow
+modules-center = date
+modules-right = pulseaudio bluetooth cpu memory battery network
+
+[module/xworkspaces]
+type = internal/xworkspaces
+label-active = %name%
+label-active-background = ${colors.background-alt}
+label-active-underline = ${colors.cyan}
+label-active-padding = 1
+
+label-occupied = %name%
+label-occupied-padding = 1
+
+label-urgent = %name%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.disabled}
+label-empty-padding = 1
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:50:...%
+label-background = ${colors.background-alt}
+
+[module/bluetooth]
+type = custom/script
+interval = 5
+exec = /home/domino/Scripts/bluetooth.sh
+click-left = blueman-manager &
+format-prefix = "🌧️ "
+format-prefix-foreground = ${colors.cyan}
+label = %output%
+label-foreground = ${colors.foreground}
+
+[module/cpu]
+type = internal/cpu
+interval = 6
+format-prefix = "🌧️ "
+format-prefix-foreground = ${colors.cyan}
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 7
+format-prefix = "❤️ "
+format-prefix-foreground = ${colors.cyan}
+label = %gb_used%
+
+[module/network]
+type = internal/network
+interface = wlan0
+interval = 8
+
+format-connected = <label-connected>
+label-connected =   %local_ip%
+label-connected-foreground = ${colors.green}
+
+format-disconnected = <label-disconnected>
+label-disconnected =   offline
+label-disconnected-foreground = ${colors.alert}
+
+[module/battery]
+type = internal/battery
+interval = 9
+battery = BAT1
+adapter = AC
+full-at = 60
+
+format-charging = <animation-charging> <label-charging>
+format-charging-foreground = ${colors.green}
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-foreground = ${colors.yellow}
+
+format-full = ⚡ <label-full>
+format-full-foreground = ${colors.green}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/pulseaudio]
+type = internal/pulseaudio
+interval = 10
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
+
+format-muted = <label-muted>
+label-muted =  muted
+label-muted-foreground = ${colors.alert}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %a %d %b %Y
+time = %H:%M
+
+label =  %date%  %time%
+label-foreground = ${colors.primary}

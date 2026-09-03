@@ -1,0 +1,174 @@
+# i3 config file (v4) - Adwaita-dark theme
+# Basic settings
+set $mod Mod4
+font pango:monospace 10
+
+# Autostart applications
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id udiskie
+exec --no-startup-id dunst
+exec --no-startup-id setxkbmap -layout us,ua,ru -variant ,,winkeys -option grp:alt_shift_toggle
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
+exec --no-startup-id  /home/domino/scripts/autostart.sh
+exec --no-startup-id blueman-applet &
+exec_always --no-startup-id feh --bg-fill /home/domino/Pictures/wall.jpg
+exec --no-startup-id polybar
+
+# Autostart stop
+# exec --no-startup-id /home/domino/Scripts/live_wallpaper.sh
+# exec --no-startup-id ~/.screenlayout/work.sh
+# exec --no-startup-id oneko
+# exec --no-startup-id polybar
+
+# Application shortcuts
+bindsym $mod+c exec code
+bindsym $mod+i exec google-chrome-stable
+bindsym $mod+z exec filezilla
+bindsym $mod+n exec mousepad
+bindsym $mod+m exec pcmanfm
+bindsym $mod+p exec mtpaint
+bindsym $mod+g exec google-chrome-stable --app=https://github.com/zimindev/ 
+bindsym $mod+w exec google-chrome-stable --app=https://web.whatsapp.com/ 
+bindsym $mod+t exec google-chrome-stable --app=https://web.telegram.org/a/
+bindsym $mod+f exec google-chrome-stable --app=https://figma.com/ 
+bindsym $mod+b exec /home/domino/.local/share/bootstrap-studio/Bootstrap-Studio.AppImage
+bindsym $mod+l exec --no-startup-id "setxkbmap -layout us,ua,ru -variant ,,winkeys -option grp:alt_shift_toggle"
+bindsym $mod+o exec "mousepad /home/domino/.config/i3/config"
+bindsym $mod+Print exec --no-startup-id flameshot gui
+bindsym --release Control+l exec /home/domino/Scripts/lock.sh
+
+# Screen light
+bindsym XF86MonBrightnessUp exec brightnessctl set +25%
+bindsym XF86MonBrightnessDown exec brightnessctl set 25%-
+
+# Screen lock, audio, network
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color=000000
+exec --no-startup-id nm-applet
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Windows color management
+client.focused          #1E90FF #1E90FF #ffffff #1E90FF #1E90FF
+client.unfocused        #2e3440 #2e3440 #888888 #2e3440 #2e3440
+client.focused_inactive #3b4252 #3b4252 #aaaaaa #3b4252 #3b4252
+client.urgent           #64bf61 #64bf61 #ffffff #64bf61 #64bf61
+
+# Window management
+floating_modifier $mod
+tiling_drag modifier titlebar
+for_window [class=".*"] border pixel 2
+
+# Window gaps
+gaps inner 2
+gaps outer 1
+smart_gaps on
+
+# Window controls
+bindsym $mod+Return exec i3-sensible-terminal
+
+bindsym $mod+Shift+q kill
+bindsym $mod+Control+d exec rofi -show drun -config ~/.config/rofi/config.rasi
+bindsym $mod+Control+j focus left
+bindsym $mod+Control+k focus down
+bindsym $mod+Control+l focus up
+bindsym $mod+Control+semicolon focus right
+bindsym $mod+Control+Left focus left
+bindsym $mod+Control+Down focus down
+bindsym $mod+Control+Up focus up
+bindsym $mod+Control+Right focus right
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+Control+h split h
+bindsym $mod+Control+v split v
+bindsym $mod+Control+f fullscreen toggle
+bindsym $mod+Control+s layout stacking
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Control+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Control+space focus mode_toggle
+bindsym $mod+Control+a focus parent
+
+# Windows control stop
+# bindsym $mod+d exec dmenu_run -nb '#242424' -nf '#ffffff' -sb '#3584e4' -sf '#ffffff' -fn 'monospace-8'
+
+# Workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Resize mode (2px steps instead of 10px)
+mode "resize" {
+    bindsym j resize shrink width 2 px or 2 ppt
+    bindsym k resize grow height 2 px or 2 ppt
+    bindsym l resize shrink height 2 px or 2 ppt
+    bindsym semicolon resize grow width 2 px or 2 ppt
+    bindsym Left resize shrink width 2 px or 2 ppt
+    bindsym Down resize grow height 2 px or 2 ppt
+    bindsym Up resize shrink height 2 px or 2 ppt
+    bindsym Right resize grow width 2 px or 2 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# i3bar (Adwaita-dark style)
+# bar {
+#     status_command i3status
+#    colors {
+#         background #242424
+#         statusline #ffffff
+#         separator  #4e4e4e
+# 
+#         focused_workspace  #3584e4 #242424 #ffffff
+#         active_workspace   #4e4e4e #2d2d2d #ffffff
+#         inactive_workspace #2d2d2d #242424 #9a9996
+#         urgent_workspace   #f66151 #242424 #ffffff
+#         binding_mode       #ffffff #3584e4 #242424
+#     }
+# }

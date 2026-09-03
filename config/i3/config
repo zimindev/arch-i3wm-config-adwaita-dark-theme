@@ -1,0 +1,297 @@
+# ============================================================
+# i3 config file (v4) - Adwaita Dark Theme
+# ============================================================
+
+# ============================================================
+# General
+# ============================================================
+
+# 💻 Mod + Font
+set $mod Mod4
+font pango:monospace 12
+
+# ============================================================
+# Autostart applications
+# ============================================================
+
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id udiskie
+exec --no-startup-id dunst
+exec --no-startup-id blueman-applet &
+exec --no-startup-id polybar
+exec_always --no-startup-id feh --bg-fill /home/domino/Pictures/wall.jpg
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
+exec --no-startup-id setxkbmap -layout us,ua,ru -variant ,,winkeys -option grp:alt_shift_toggle
+
+# ============================================================
+# Autostart disabled
+# ============================================================
+
+# exec --no-startup-id /home/domino/Scripts/live_wallpaper.sh
+# exec --no-startup-id ~/.screenlayout/work.sh
+# exec --no-startup-id oneko
+# exec --no-startup-id /home/domino/scripts/autostart.sh
+# exec --no-startup-id oneko
+# exec --no-startup-id wine "/home/domino/.wine/dosdevices/c:/Program Files (x86)/Skillbrains/lightshot/Lightshot.exe"
+
+# ============================================================
+# Application shortcuts
+# ============================================================
+
+# 💻 Development / Editors
+bindsym $mod+b exec /home/domino/.local/share/bootstrap-studio/Bootstrap-Studio.AppImage
+bindsym $mod+c exec code
+bindsym $mod+h exec google-chrome-stable --app=https://github.com/zimindev/
+bindsym $mod+n exec mousepad
+
+# 🌐 Network / Administration
+bindsym $mod+w exec winbox
+bindsym $mod+v exec virt-manager
+
+# 📁 File Management
+bindsym $mod+m exec pcmanfm
+bindsym $mod+Control+m exec QT_QPA_PLATFORMTHEME=gtk3 doublecmd
+bindsym $mod+z exec filezilla
+
+# 🎨 Graphics / Design
+bindsym $mod+f exec google-chrome-stable --app=https://figma.com/
+bindsym $mod+p exec mtpaint
+
+# 🌐 Web / Browser
+bindsym $mod+i exec google-chrome-stable
+bindsym $mod+k exec google-chrome-stable --app=https://rezka.ag/
+
+# 💬 Web / Messenger
+bindsym --release Control+w exec google-chrome-stable --app=https://web.whatsapp.com/
+bindsym --release Control+t exec google-chrome-stable --app=https://web.telegram.org/a/
+
+# 🤖 Web / AI
+bindsym --release Control+g exec google-chrome-stable --app=https://chatgpt.com
+bindsym --release Control+d exec google-chrome-stable --app=https://chat.deepseek.com/
+
+# 🎵 Media / Entertainment
+bindsym $mod+g exec steam
+bindsym $mod+s exec google-chrome-stable --app=https://open.spotify.com/#login
+# bindsym $mod+g exec google-chrome-stable --app=https://uk.y8.com/
+
+# ⚙️ System
+bindsym $mod+l exec --no-startup-id "setxkbmap -layout us,ua,ru -variant ,,winkeys -option grp:alt_shift_toggle"
+bindsym $mod+o exec "mousepad /home/domino/.config/i3/config"
+bindsym --release Control+l exec /home/domino/Scripts/lock.sh
+
+# 🍷 Wine
+# bindsym $mod+Print exec --no-startup-id wine "/home/domino/.wine/dosdevices/c:/Program Files (x86)/Skillbrains/lightshot/Lightshot.exe"
+
+# 📸 ScreenShots
+bindsym Print exec --no-startup-id ksnip -r # select area
+bindsym Shift+Print exec --no-startup-id ksnip -f # full screen
+bindsym Control+Print exec --no-startup-id ksnip -a # active window
+
+# ============================================================
+# Hardware controls
+# ============================================================
+
+# 💡 Screen brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set +25%
+bindsym XF86MonBrightnessDown exec brightnessctl set 25%-
+
+# 🔊 Audio
+set $refresh_i3status killall -SIGUSR1 i3status
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# ============================================================
+# Screen lock / Network
+# ============================================================
+
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color=000000
+exec --no-startup-id nm-applet
+
+# ============================================================
+# Appearance
+# ============================================================
+
+# 🖼️ Window colors
+client.focused          #1E90FF #1E90FF #ffffff #1E90FF #1E90FF
+client.unfocused        #2e3440 #2e3440 #888888 #2e3440 #2e3440
+client.focused_inactive #3b4252 #3b4252 #aaaaaa #3b4252 #3b4252
+client.urgent           #64bf61 #64bf61 #ffffff #64bf61 #64bf61
+
+# 🖼️ Borders
+for_window [class=".*"] border pixel 2
+
+# 🪟 Window gaps
+gaps inner 2
+gaps outer 1
+smart_gaps on
+
+# ============================================================
+# Window management
+# ============================================================
+
+# 🖱️ Floating modifier
+floating_modifier $mod
+
+# 🖱️ Drag tiled windows by titlebar
+tiling_drag modifier titlebar
+
+# 🪟 Automatic floating windows
+for_window [window_role="pop-up"] floating disable
+for_window [window_role="dialog"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Steam"] floating enable
+
+# ============================================================
+# Window controls
+# ============================================================
+
+# 🚀 Launch terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# ❌ Close window
+bindsym $mod+Shift+q kill
+
+# 🔎 Application launcher
+bindsym $mod+Control+d exec rofi -show drun -config ~/.config/rofi/config.rasi
+
+# 🧭 Focus
+bindsym $mod+Control+j focus left
+bindsym $mod+Control+k focus down
+bindsym $mod+Control+l focus up
+bindsym $mod+Control+semicolon focus right
+
+bindsym $mod+Control+Left focus left
+bindsym $mod+Control+Down focus down
+bindsym $mod+Control+Up focus up
+bindsym $mod+Control+Right focus right
+
+# ↔️ Move windows
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# 🪟 Split / Layout
+bindsym $mod+Control+h split h
+bindsym $mod+Control+v split v
+bindsym $mod+Control+f fullscreen toggle
+bindsym $mod+Control+s layout stacking
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Control+e layout toggle split
+
+# 🔲 Floating
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Control+space focus mode_toggle
+
+# 🌳 Parent
+bindsym $mod+Control+a focus parent
+
+# ============================================================
+# Window controls disabled dmenu
+# ============================================================
+
+# bindsym $mod+d exec dmenu_run -nb '#242424' -nf '#ffffff' -sb '#3584e4' -sf '#ffffff' -fn 'monospace-8'
+
+# ============================================================
+# Workspaces                   
+# ============================================================
+
+# 🖼️ Workspace icons
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
+
+# 🔢 Switch workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace number $ws10
+
+# 📦 Move container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# ============================================================
+# i3 controls
+# ============================================================
+
+# 🔄 Reload configuration
+bindsym $mod+Shift+c reload
+
+# 🔁 Restart i3
+bindsym $mod+Shift+r restart
+
+# 🚪 Exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# ============================================================
+# Resize mode
+# ============================================================
+
+mode "resize" {
+    bindsym j resize shrink width 2 px or 2 ppt
+    bindsym k resize grow height 2 px or 2 ppt
+    bindsym l resize shrink height 2 px or 2 ppt
+    bindsym semicolon resize grow width 2 px or 2 ppt
+
+    bindsym Left resize shrink width 2 px or 2 ppt
+    bindsym Down resize grow height 2 px or 2 ppt
+    bindsym Up resize shrink height 2 px or 2 ppt
+    bindsym Right resize grow width 2 px or 2 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# ============================================================
+# i3bar
+# ============================================================
+
+# bar {
+#     status_command i3status
+#
+#     colors {
+#         background #242424
+#         statusline #ffffff
+#         separator  #4e4e4e
+#
+#         focused_workspace  #3584e4 #242424 #ffffff
+#         active_workspace   #4e4e4e #2d2d2d #ffffff
+#         inactive_workspace #2d2d2d #242424 #9a9996
+#         urgent_workspace   #f66151 #242424 #ffffff
+#         binding_mode       #ffffff #3584e4 #242424
+#     }
+# }

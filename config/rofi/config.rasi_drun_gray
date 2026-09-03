@@ -1,0 +1,134 @@
+/**
+ * Dark Gray Rofi Theme for Drun Menu
+ * Customized from original by Aditya Shakya (adi1090x)
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+    modi:                        "drun"; /* Show only drun menu */
+    show-icons:                  true;    /* Display application icons */
+    display-drun:                "🧲";    /* Custom prompt text for drun */
+    drun-display-format:         "{name}"; /* Show only app names for compact view */
+}
+
+/*****----- Color Scheme -----*****/
+* {
+    /* Base colors */
+    background:                  #212121; /* Very dark gray (almost black) */
+    background-alt:              #2c2c2c; /* Slightly lighter dark gray */
+    foreground:                  #e6e6e6; /* Light gray for text */
+    selected:                    #424242; /* Medium gray for selected items */
+    active:                      #505050; /* Slightly lighter gray for active elements */
+    urgent:                      #b06060; /* Muted red for urgent notifications */
+    
+    /* Derived colors */
+    border-colour:               var(selected);
+    handle-colour:               var(selected);
+    background-colour:           var(background);
+    foreground-colour:           var(foreground);
+    alternate-background:        var(background-alt);
+    normal-background:           var(background);
+    normal-foreground:           var(foreground);
+    urgent-background:           var(urgent);
+    urgent-foreground:           var(foreground);
+    active-background:           var(active);
+    active-foreground:           var(foreground);
+    selected-normal-background:  var(selected);
+    selected-normal-foreground:  var(foreground);
+    selected-urgent-background:  var(urgent);
+    selected-urgent-foreground:  var(foreground);
+    selected-active-background:  var(active);
+    selected-active-foreground:  var(foreground);
+    alternate-normal-background: var(background);
+    alternate-normal-foreground: var(foreground);
+    alternate-urgent-background: var(urgent);
+    alternate-urgent-foreground: var(foreground);
+    alternate-active-background: var(active);
+    alternate-active-foreground: var(foreground);
+}
+
+/*****----- Window Settings -----*****/
+window {
+    transparency:                "real";  /* Use real transparency */
+    location:                    center;  /* Center the window */
+    anchor:                      center;  /* Anchor point */
+    fullscreen:                  false;   /* Not fullscreen */
+    width:                       400px;   /* Fixed width */
+    x-offset:                    0px;     /* Horizontal position */
+    y-offset:                    0px;     /* Vertical position */
+    margin:                      0px;     /* No margin */
+    padding:                     0px;     /* No padding */
+    border:                      2px solid; /* Border thickness */
+    border-radius:               8px;     /* Rounded corners */
+    border-color:                @border-colour;
+    cursor:                      "default"; /* Default cursor */
+    background-color:            @background-colour;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    spacing:                     10px;    /* Space between children */
+    padding:                     10px;    /* Inner padding */
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ]; /* Only show input and list (removed message and mode-switcher) */
+}
+
+/*****----- Input Bar -----*****/
+inputbar {
+    spacing:                     10px;    /* Space between elements */
+    padding:                     10px;    /* Inner padding */
+    border:                      0px 0px 1px 0px; /* Bottom border only */
+    border-color:                @border-colour;
+    background-color:            @alternate-background;
+    text-color:                  @foreground-colour;
+    children:                    [ "prompt", "entry" ]; /* Contains prompt and input field */
+}
+
+/*****----- Prompt -----*****/
+prompt {
+    enabled:                     true;    /* Show prompt */
+    padding:                     0px;     /* No padding */
+    background-color:            inherit; /* Inherit from parent */
+    text-color:                  inherit; /* Inherit from parent */
+}
+
+/*****----- Entry -----*****/
+entry {
+    background-color:            inherit; /* Inherit from parent */
+    text-color:                  inherit; /* Inherit from parent */
+    placeholder:                 " run..."; /* Input field hint */
+    placeholder-color:           #999999; /* Gray color for hint text */
+}
+
+/*****----- List View -----*****/
+listview {
+    columns:                     1;       /* Single column layout */
+    lines:                       10;      /* Number of visible lines */
+    spacing:                     0px;     /* No space between items */
+    padding:                     0px;     /* No padding */
+    background-color:            transparent;
+    text-color:                  @foreground-colour;
+    cursor:                      "default"; /* Default cursor */
+    cycle:                       true;    /* Enable circular scrolling */
+    dynamic:                     true;    /* Enable dynamic updates */
+}
+
+/*****----- Elements -----*****/
+element {
+    spacing:                     10px;    /* Space between icon and text */
+    padding:                     10px;    /* Item padding */
+    border-radius:               4px;     /* Slightly rounded corners */
+    background-color:            transparent;
+    text-color:                  @foreground-colour;
+    cursor:                      pointer; /* Pointer cursor on hover */
+}
+
+element-icon {
+    size:                        28px;    /* Icon size */
+    vertical-align:              0.5;     /* Vertical alignment */
+}
+
+element selected.normal {
+    background-color:            var(selected-normal-background);
+    text-color:                  var(selected-normal-foreground);
+}

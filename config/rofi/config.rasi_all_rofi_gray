@@ -1,0 +1,140 @@
+/**
+ * Dark Gray Rofi Theme
+ * Based on original by Aditya Shakya (adi1090x)
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+    modi:                        "drun,run,window,filebrowser";
+    show-icons:                  true;
+    display-drun:                "🧑‍💻";
+    display-run:                 "📜";
+    display-window:              "📺";
+    display-filebrowser:         "🗄️";
+    drun-display-format:         "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    window-format:               "{w} · {c} · {t}";
+}
+
+/*****----- Color Scheme -----*****/
+* {
+    /* Base colors */
+    background:                  #212121; /* Дуже темно-сірий, майже чорний */
+    background-alt:              #2c2c2c; /* Темно-сірий, трохи світліший за background */
+    foreground:                  #e6e6e6; /* Світло-сірий для тексту */
+    selected:                    #424242; /* Середньо-сірий для вибраних елементів */
+    active:                      #505050; /* Трохи світліший сірий для активних елементів */
+    urgent:                      #b06060; /* Збережено червоний для термінових, але трохи приглушений */
+    
+    /* Derived colors */
+    border-colour:               var(selected);
+    handle-colour:               var(selected);
+    background-colour:           var(background);
+    foreground-colour:           var(foreground);
+    alternate-background:        var(background-alt);
+    normal-background:           var(background);
+    normal-foreground:           var(foreground);
+    urgent-background:           var(urgent);
+    urgent-foreground:           var(foreground); /* Змінено на foreground для кращої читабельності */
+    active-background:           var(active);
+    active-foreground:           var(foreground); /* Змінено на foreground для кращої читабельності */
+    selected-normal-background:  var(selected);
+    selected-normal-foreground:  var(foreground);
+    selected-urgent-background:  var(urgent);
+    selected-urgent-foreground:  var(foreground);
+    selected-active-background:  var(active);
+    selected-active-foreground:  var(foreground);
+    alternate-normal-background: var(background);
+    alternate-normal-foreground: var(foreground);
+    alternate-urgent-background: var(urgent);
+    alternate-urgent-foreground: var(foreground);
+    alternate-active-background: var(active);
+    alternate-active-foreground: var(foreground);
+}
+
+/*****----- Window Settings -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       600px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      2px solid;
+    border-radius:               8px;
+    border-color:                @border-colour;
+    cursor:                      "default";
+    background-color:            @background-colour;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    spacing:                     10px;
+    padding:                     10px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "message", "listview", "mode-switcher" ];
+}
+
+/*****----- Input Bar -----*****/
+inputbar {
+    spacing:                     10px;
+    padding:                     10px;
+    border:                      0px 0px 1px 0px;
+    border-color:                @border-colour;
+    background-color:            @alternate-background;
+    text-color:                  @foreground-colour;
+    children:                    [ "prompt", "entry" ];
+}
+
+/*****----- List View -----*****/
+listview {
+    columns:                     2;
+    lines:                       8;
+    spacing:                     0px;
+    padding:                     0px;
+    background-color:            transparent;
+    text-color:                  @foreground-colour;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    spacing:                     10px;
+    padding:                     10px;
+    border-radius:             4px;
+    background-color:          transparent;
+    text-color:                @foreground-colour;
+    cursor:                    pointer;
+}
+
+element-icon {
+    size:                        32px;  /* Збільшений розмір іконок */
+    vertical-align:              0.5;   /* Вирівнювання по вертикалі */
+}
+
+element selected.normal {
+    background-color:            var(selected-normal-background);
+    text-color:                  var(selected-normal-foreground);
+}
+
+/*****----- Mode Switcher -----*****/
+mode-switcher {
+    spacing:                     10px;
+    background-color:            transparent;
+    text-color:                  @foreground-colour;
+}
+
+button {
+    padding:                     10px;
+    border-radius:               4px;
+    background-color:            @alternate-background;
+    text-color:                  inherit;
+    cursor:                      pointer;
+}
+
+button selected {
+    background-color:            var(selected-normal-background);
+    text-color:                  var(selected-normal-foreground);
+}

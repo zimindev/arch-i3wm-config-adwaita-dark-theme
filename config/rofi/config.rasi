@@ -1,0 +1,140 @@
+/**
+* 🌙 Adwaita-Dark Rofi Theme
+* ⚙️ Optimized for GNOME environment
+* 🧹 Removed unsupported selectors
+**/
+
+/*****----- ⚙️ Configuration -----*****/
+configuration {
+modi:                        "drun";
+show-icons:                  true;
+display-drun:                "🍕";
+drun-display-format:         "{name}";
+}
+
+/*****----- 🎨 Color Scheme -----*****/
+
+* {
+  /* 🎨 Base colors */
+  background:                  #242424;
+  background-alt:              #2d2d2d;
+  foreground:                  #eeeeec;
+  selected:                    #5e5c64;
+  active:                      #5e5c64;
+  urgent:                      #ed333b;
+
+  /* 🌈 Derived colors */
+  border-colour:               #1c1c1c;
+  handle-colour:               #4a90d9;
+  background-colour:           var(background);
+  foreground-colour:           var(foreground);
+  alternate-background:        var(background-alt);
+  normal-background:           var(background);
+  normal-foreground:           var(foreground);
+  urgent-background:           var(urgent);
+  urgent-foreground:           var(foreground);
+  active-background:           var(active);
+  active-foreground:           var(foreground);
+  selected-normal-background:  var(selected);
+  selected-normal-foreground:  var(foreground);
+  selected-urgent-background:  var(urgent);
+  selected-urgent-foreground:  var(foreground);
+  selected-active-background:  var(active);
+  selected-active-foreground:  var(foreground);
+  alternate-normal-background: var(background);
+  alternate-normal-foreground: var(foreground);
+  alternate-urgent-background: var(urgent);
+  alternate-urgent-foreground: var(foreground);
+  alternate-active-background: var(active);
+  alternate-active-foreground: var(foreground);
+  }
+
+/*****----- 🪟 Window Settings -----*****/
+window {
+transparency:                "real";
+location:                    center;
+anchor:                      center;
+fullscreen:                  false;
+width:                       400px;
+x-offset:                    0px;
+y-offset:                    0px;
+margin:                      0px;
+padding:                     0px;
+border:                      1px solid;
+border-radius:               6px;
+border-color:                @border-colour;
+cursor:                      "default";
+background-color:            @background-colour;
+}
+
+/*****----- 📦 Main Box -----*****/
+mainbox {
+spacing:                     8px;
+padding:                     8px;
+background-color:            transparent;
+children:                    [ "inputbar", "listview" ];
+}
+
+/*****----- 🔎 Input Bar -----*****/
+inputbar {
+spacing:                     8px;
+padding:                     8px;
+border:                      0px 0px 1px 0px;
+border-color:                @border-colour;
+background-color:            @alternate-background;
+text-color:                  @foreground-colour;
+children:                    [ "prompt", "entry" ];
+}
+
+/*****----- 💬 Prompt -----*****/
+prompt {
+enabled:                     true;
+padding:                     0px;
+background-color:            inherit;
+text-color:                  @selected;
+}
+
+/*****----- ✏️ Entry -----*****/
+entry {
+background-color:            inherit;
+text-color:                  inherit;
+placeholder:                 "run...";
+placeholder-color:           #777777;
+}
+
+/*****----- 📋 List View -----*****/
+listview {
+columns:                     1;
+lines:                       8;
+spacing:                     0px;
+padding:                     0px;
+background-color:            transparent;
+text-color:                  @foreground-colour;
+cursor:                      "default";
+cycle:                       true;
+dynamic:                     true;
+}
+
+/*****----- 🧩 Elements -----*****/
+element {
+spacing:                     8px;
+padding:                     6px 8px;
+border-radius:               4px;
+background-color:            transparent;
+text-color:                  @foreground-colour;
+cursor:                      pointer;
+}
+
+element-icon {
+size:                        18px;
+vertical-align:              0.5;
+}
+
+element selected.normal {
+background-color:            var(selected-normal-background);
+text-color:                  white;
+}
+
+element active.normal {
+background-color:            var(active-background);
+}
