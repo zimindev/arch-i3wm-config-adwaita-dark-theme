@@ -22,7 +22,6 @@ reboot
 ```
 
 ## 🧩 Picom Setup Guide for Arch + i3wm
-![image](https://github.com/user-attachments/assets/b440eebc-c073-4943-9625-b72076d36c5b)
 
 ---
 
