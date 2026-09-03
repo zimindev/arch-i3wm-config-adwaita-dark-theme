@@ -20,8 +20,23 @@ sudo pacman -S update
 sudo pacman -S upgrade
 reboot
 ```
+
 ## 🔄 Install AUR
 
+---
+
+### 🟢 **1. Install Git, Base-Devel
+
+```bash
+sudo pacman -S --needed base-devel git
+```
+### 🟢 **2. Install YAY
+
+```bash
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
 
 ## 🧩 Picom Setup Guide for Arch + i3wm
 
