@@ -1,5 +1,5 @@
-# GTK applications — use Adwaita dark theme
+# 🎨 GTK applications — use Adwaita dark theme
 export GTK_THEME=Adwaita:dark
 
-# Qt6 applications — use GTK3 platform theme
-export QT_QPA_PLATFORMTHEME=gtk3
+# 🖥️ Qt6 applications — use GTK3 platform theme
+export QT_QPA_PLATFORMTHEME=gtk3gs
