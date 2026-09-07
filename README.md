@@ -192,7 +192,7 @@ sudo pacman -Rn xterm
 ### 🟢 Install 
 
 ```bash
-sudo pacman -S kitty rofi polybar duf feh krita inkscape mtpaint mousepad keepassxc vls mpv vim remmina freerdp putty nmap zenmap firefox librewolf filezilla okular qutebrowser ksnip zip unzip ranger doublecmd-qt6 pcmanfm 
+sudo pacman -S kitty rofi polybar duf feh krita inkscape mtpaint mousepad keepassxc vls mpv vim remmina freerdp putty nmap zenmap firefox librewolf filezilla okular qutebrowser ksnip zip unzip ranger doublecmd-qt6 pcmanfm yt-dlp
 
 ### 🟢 Install cli
 
