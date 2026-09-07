@@ -176,10 +176,11 @@ picom --config ~/.config/picom/picom.conf
 ## 🔄 Install Pakage 
 ```bash
 yay -S google-chrome
+yay -S opera
 yay -S visual-studio-code-bin
 yay -S wps-office
 yay -S vmware-workstation
 ```
 ```bash
-sudo pacman -S kitty duf feh krita mtpaint mousepad keepassxc vls mpv vim rammina freerdp firefox filezilla okular qutebrowser ksnip
+sudo pacman -S kitty rofi polybar duf feh krita inkscape mtpaint mousepad keepassxc vls mpv vim remmina freerdp putty nmap zenmap firefox librewolf filezilla okular qutebrowser ksnip zip unzip ranger doublecmd-qt6 pcmanfm 
 ```
