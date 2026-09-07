@@ -173,7 +173,7 @@ picom --config ~/.config/picom/picom.conf
 ```
 ---
 
-## 🔄 Install Pakage 
+## 🔄 Install Pakage AUR
 ```bash
 yay -S google-chrome
 yay -S opera
@@ -181,6 +181,25 @@ yay -S visual-studio-code-bin
 yay -S wps-office
 yay -S vmware-workstation
 ```
+## 🔄 Install Pakage Pacman
+
+### 🟢 Install terminal
+
+```bash
+sudo pacman -S kitty
+sudo pacman -Rn xterm
+```
+### 🟢 Install 
+
 ```bash
 sudo pacman -S kitty rofi polybar duf feh krita inkscape mtpaint mousepad keepassxc vls mpv vim remmina freerdp putty nmap zenmap firefox librewolf filezilla okular qutebrowser ksnip zip unzip ranger doublecmd-qt6 pcmanfm 
-```
+
+### 🟢 Install cli
+
+```bash
+sudo pacman -S kitty rofi polybar duf feh krita inkscape mtpaint mousepad keepassxc vls mpv vim remmina freerdp putty nmap zenmap firefox librewolf filezilla okular qutebrowser ksnip zip unzip ranger doublecmd-qt6 pcmanfm 
+
+### 🟢 Install cli
+
+```bash
+sudo pacman -S kitty rofi polybar duf feh krita inkscape mtpaint mousepad keepassxc vls mpv vim remmina freerdp putty nmap zenmap firefox librewolf filezilla okular qutebrowser ksnip zip unzip ranger doublecmd-qt6 pcmanfm 
