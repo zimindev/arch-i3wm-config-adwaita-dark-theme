@@ -225,4 +225,4 @@ sudo pacman -S kitty rofi polybar duf feh krita inkscape mtpaint mousepad keepas
 ```bash
 sudo pacman -S kitty rofi polybar duf feh krita inkscape mtpaint mousepad keepassxc vls mpv vim remmina freerdp putty nmap zenmap firefox librewolf filezilla okular qutebrowser ksnip zip unzip ranger doublecmd-qt6 pcmanfm 
 
-### 🟢 Install other
+### 🟢 Install others
