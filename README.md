@@ -180,6 +180,7 @@ yay -S opera
 yay -S visual-studio-code-bin
 yay -S wps-office
 yay -S vmware-workstation
+yay -S github-copilot-cli-bin
 ```
 ## 🔄 Install Pakage Pacman
 
